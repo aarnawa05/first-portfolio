@@ -10,9 +10,11 @@ body {
 }
 
 nav {
+  position: sticky;
+    top: 0;
   background-color: white;
   box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.1);
-  padding: 10px;
+  padding: 15px;
 }
 
 nav ul {
@@ -20,6 +22,7 @@ nav ul {
   list-style: none;
   display: flex;
   justify-content: flex-end;
+  align-items: center;
 }
 
 nav li {
@@ -27,9 +30,11 @@ nav li {
 }
 
 nav a {
-  height: 20%;
-  padding: 10px 30px;
+  height: 100%;
+    padding: 0 30px;
   text-decoration: none;
+  font-size: 20px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     /* Removes underline */
   display: flex;
   align-items: center;
@@ -44,18 +49,127 @@ nav a:hover {
 nav li:first-child {
   margin-right: auto;
 }
+nav img {
+  height: 50px;
+  width: 50x;
+  border-radius: 50%;
+}
+
+.welcome-h1 {
+  padding: 20px 20px;
+}
+
+/* class = "Sidebar" styles */
 .sidebar {
   position: fixed;
   top: 0;
   right: 0;
   height: 100vh;
   width: 250px;
-  z-index: 999;
   /* Ensures sidebar is above other content */
-  background-color: white;
+  z-index: 999;
+    background-color: rgba(255, 255, 255, 0.2);
+    /* Add this line first, it fixes blur for Safari*/
+    -webkit-backdrop-filter: blur(12px);
+    /* This line activates blur*/
+    backdrop-filter: blur(12px);
   box-shadow: -10px 0 10px rgba(0, 0, 0, 0.1);
-  display: flex;
+  display: none;
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
+}
+.sidebar li {
+  width: 100%;
+}
+
+.sidebar a {
+  width: 100%;
+}
+
+.menu-button {
+  display: none;
+}
+
+/* Put website name on center on the nav bar */
+.center-nav {
+  display: flex;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 0);
+  font-size: 25px;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Resume section */
+
+.resume-container {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  height: 600px;
+  width: 100vw;
+}
+
+.resume-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  /* border-style: solid; */
+  /* border-radius: 10px; */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.resume-container h2 {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.resume {
+  width: 300px;
+  height: 300px;
+  border-style: hidden;
+  border-radius: 2px;
+}
+
+.resume-button {
+  background-color: #4CAF50;
+  color: white;
+  /* margin: 0.5% 5%; */
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  height: 50px;
+  width: 150px;
+  font-size: 16px;
+}
+
+.resume:hover {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  transform: scale(1.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+
+/* Hide nav on mobile */
+@media(max-width: 800px) {
+  .hideOnMobile {
+    display: none;
+  }
+
+  /* Show menu button if nav is hidden */
+  .menu-button {
+    display: block;
+  }
+}
+
+@media(max-width: 400px) {
+  .sidebar {
+    width: 100%;
+  }
 }
